@@ -1,0 +1,68 @@
+/* line 1, ../sass/app.scss */
+.logo {
+  font-size: 1.3em;
+  color: #555;
+  line-height: 0;
+  margin-top: 10px;
+}
+
+/* line 1, ../sass/app.scss */
+body {
+  margin-top: 50px;
+}
+
+/* line 2, ../sass/app.scss */
+input[type=checkbox]:hover {
+  cursor: pointer;
+}
+
+/* line 2, ../sass/app.scss */
+input[type=search] {
+  width: 80%;
+}
+
+/* line 3, ../sass/app.scss */
+.panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  line-height: 0em;
+  padding-top: 1px !important;
+}
+
+/* line 4, ../sass/app.scss */
+.right {
+  float: right;
+  display: block;
+  line-height: 1.5em;
+  color: #999;
+}
+
+/* line 5, ../sass/app.scss */
+.label.white {
+  float: left;
+  margin: 3px;
+  padding: px;
+  color: #999;
+  background: #efefef;
+}
+
+/* line 5, ../sass/app.scss */
+h3 {
+  clear: both;
+}
+
+/* line 6, ../sass/app.scss */
+.description {
+  margin-bottom: 10px;
+  padding: 15px 0;
+  border-top: solid 1px #eee;
+}
+
+/* line 6, ../sass/app.scss */
+hr {
+  border: dotted 1px #efefff;
+  margin-bottom: 15px !important;
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html> <!--
+._______________________________________________________________________________.
+|																				|
+|	This article reader uses angular.js to display articles. 					|
+|	The data is delivered via JSONP from Yahoo pipe powered by an rss feed.		|
+|_______________________________________________________________________________|
+			  \	 															   /
+			   \	BRIAN DANOWSKI								MAY 18, 2012  /
+				\____________________________________________________________/
+-->
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="Counter"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+	
+	<!-- Set the viewport width to device width for mobile -->
+	<meta name="viewport" content="width=device-width" />
+	
+	<title>Reader</title>
+  
+	<!-- Included CSS Files -->
+	<link rel="stylesheet" href="stylesheets/foundation.css">
+	<link rel="stylesheet" href="stylesheets/app.css">
+
+	<!--[if lt IE 9]>
+		<link rel="stylesheet" href="stylesheets/ie.css">
+	<![endif]-->
+
+	
+	<!-- IE Fix for HTML5 Tags -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+</head>
+<body>
+
+	<!-- container -->
+	
+	<div class="container" ng-controller="CounterCtrl">	
+		<div class="panel">
+			<div class="row">
+				<h1 class="one columns logo">Reader</h1>
+					<div class="eleven columns">
+			
+					<!--Our search/filter box The ng-model attribute syncs the field 
+						input with the filter on our list iterator -->
+						<input type="search" ng-model="query" placeholder="Live Filter">
+					
+					<!--We will use this checkbox to toggle the body 
+					content of the articles on and off -->
+						<label for="checkbox">Full Text</label> <input name="checkbox" type="checkbox" ng-model="description">
+					</div>	
+			
+			</div>
+		</div>
+		<div class="row">
+			<div class="twelve columns">
+				<!--Iterate through the data in counterResult 
+				from our resource in CounterCtrl in app.js -->	
+				<div class="row" ng-repeat="count in counterResult.value.items |  filter:query">
+					<div class="twelve columns">
+	
+						<!--Output  Date-->	
+						<span>{{count.pubDate}}</span>
+					
+						<!--Output  Title-->		
+						<h3>{{count.title}}</h3>
+
+						<!--Our body copy is hidden by default, 
+							and the ng-show is wired to the toggle checkbox-->					
+						<div class="description" ng-show="description" ng-bind-html-unsafe=count.description>
+						</div>		
+						
+						<!--Normally I avoid hr's because it's bad 
+							separation of content and presentation
+							but my layout is mostly non-floaty so 
+							it's convenient to use the hr to force clears
+						  - The category labels are floated because 
+							they will run off of the page 
+							if there are a lot of them. -->
+						<hr>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Included JS Files - in production I like to concatinate all of my scripts into one file, but I'll resist for now for better clarity-->
+	<script src="javascripts/jquery.min.js"></script>
+	<script src="javascripts/jquery-.placeholder.min.js"></script>
+	<script src="javascripts/angular-1.0.0rc8.min.js"></script>
+	<script src="javascripts/angular-resource-1.0.0rc8.js"></script>
+	<script src="javascripts/app.js"></script>
+
+</body>
+</html>
+
+<!--i love you-->
